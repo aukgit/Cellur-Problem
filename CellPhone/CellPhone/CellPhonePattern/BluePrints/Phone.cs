@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Linq;
+using System.Windows.Forms;
 using CellPhone.CellPhonePattern.Interfaces;
 using CellPhone.Implementation;
 
 namespace CellPhone.CellPhonePattern.BluePrints {
     public class Phone : IBehaviourRinging, IFlashingBehaviour, INetwork, ISms {
 
-        public Phone(long phoneNumber) {
+        public Phone(long phoneNumber, Form form) {
             if (Global.PhoneNumbers.Any(n => n == phoneNumber)) {
                 throw new Exception("you can't create a phone with existing number.");
             }
             TryToGetOnline();
             this.PhoneNumber = phoneNumber;
         }
+
+        public Form PhoneInstance { get; set; }
 
         /// <summary>
         /// if possible try to get connected with a network.
