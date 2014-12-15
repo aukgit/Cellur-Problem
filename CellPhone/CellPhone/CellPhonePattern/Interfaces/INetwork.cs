@@ -1,6 +1,6 @@
-﻿namespace CellPhone.DesignPattern.Interfaces {
+﻿namespace CellPhone.CellPhonePattern.Interfaces {
     public interface INetwork {
-        int NetwrokID {
+        int NetwrokId {
             get;
             set;
         }

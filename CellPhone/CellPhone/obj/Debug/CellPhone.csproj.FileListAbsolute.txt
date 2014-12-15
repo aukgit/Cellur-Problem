@@ -1,1 +1,8 @@
 E:\Working\GitHub\Cellur-Problem\CellPhone\CellPhone\bin\Debug\CellPhone.exe.config
+E:\Working\GitHub\Cellur-Problem\CellPhone\CellPhone\obj\Debug\CellPhone.csprojResolveAssemblyReference.cache
+E:\Working\GitHub\Cellur-Problem\CellPhone\CellPhone\obj\Debug\CellPhone.Properties.Resources.resources
+E:\Working\GitHub\Cellur-Problem\CellPhone\CellPhone\obj\Debug\CellPhone.csproj.GenerateResource.Cache
+E:\Working\GitHub\Cellur-Problem\CellPhone\CellPhone\bin\Debug\CellPhone.exe
+E:\Working\GitHub\Cellur-Problem\CellPhone\CellPhone\bin\Debug\CellPhone.pdb
+E:\Working\GitHub\Cellur-Problem\CellPhone\CellPhone\obj\Debug\CellPhone.exe
+E:\Working\GitHub\Cellur-Problem\CellPhone\CellPhone\obj\Debug\CellPhone.pdb

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CellPhone.CellPhonePattern.BluePrints.Phone" HideInheritanceLine="true">
+    <Position X="1.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAgAAAAAAAAAEEBAAAAAAgAAAAAAAQ=</HashCode>
+      <FileName>CellPhonePattern\BluePrints\Phone.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="8.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="CellPhone.CellPhonePattern.BluePrints.GlobalNetwork">
+    <Position X="5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>CellPhonePattern\BluePrints\GlobalNetwork.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CellPhone.CellPhonePattern.BluePrints.LocalNetwork">
+    <Position X="6.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>CellPhonePattern\BluePrints\LocalNetwork.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="CellPhone.CellPhonePattern.Interfaces.INetwork">
+    <Position X="1.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CellPhonePattern\Interfaces\INetwork.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CellPhone.CellPhonePattern.Interfaces.IBehaviourRinging">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAgAAAAAAAQ=</HashCode>
+      <FileName>CellPhonePattern\Interfaces\IBehaviourRinging.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CellPhone.CellPhonePattern.Interfaces.IFlashingBehaviour">
+    <Position X="4.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CellPhonePattern\Interfaces\IFlashingBehaviour.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CellPhone.CellPhonePattern.Interfaces.ISms">
+    <Position X="6" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CellPhonePattern\Interfaces\ISMS.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

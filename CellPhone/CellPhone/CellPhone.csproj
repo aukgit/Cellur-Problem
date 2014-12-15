@@ -44,18 +44,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DesignPattern\BluePrints\CellPhone.cs" />
+    <Compile Include="CellPhonePattern\BluePrints\Phone.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="DesignPattern\Interfaces\IBehaviourRinging.cs" />
-    <Compile Include="DesignPattern\Interfaces\INetwork.cs" />
-    <Compile Include="DesignPattern\Interfaces\IFlashingBehaviour.cs" />
+    <Compile Include="CellPhonePattern\Interfaces\IBehaviourRinging.cs" />
+    <Compile Include="CellPhonePattern\Interfaces\INetwork.cs" />
+    <Compile Include="CellPhonePattern\Interfaces\IFlashingBehaviour.cs" />
+    <Compile Include="CellPhonePattern\BluePrints\GlobalNetwork.cs" />
+    <Compile Include="CellPhonePattern\BluePrints\LocalNetwork.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CellPhonePattern\Interfaces\ISMS.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -65,7 +68,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="DesignPattern\ClassDiagram.cd" />
+    <None Include="CellPhonePattern\ClassDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

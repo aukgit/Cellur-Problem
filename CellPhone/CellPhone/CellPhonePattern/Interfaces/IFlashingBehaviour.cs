@@ -1,4 +1,4 @@
-﻿namespace CellPhone.DesignPattern.Interfaces {
+﻿namespace CellPhone.CellPhonePattern.Interfaces {
     public interface IFlashingBehaviour {
     
         bool IsFlashing { 
