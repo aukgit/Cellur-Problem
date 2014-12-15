@@ -4,7 +4,7 @@
             get;
             set;
         }
-    
+
         void StartRinging();
 
         void StopRinging();

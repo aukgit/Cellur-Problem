@@ -36,14 +36,7 @@ namespace CellPhone.CellPhonePattern.BluePrints {
 
         #region INetwork Members
 
-        public int NetwrokId {
-            get {
-                throw new System.NotImplementedException();
-            }
-            set {
-                throw new System.NotImplementedException();
-            }
-        }
+        public int NetwrokId { get; set; }
 
         #endregion
     }
