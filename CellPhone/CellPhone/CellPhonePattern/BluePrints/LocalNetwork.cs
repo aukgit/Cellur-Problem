@@ -17,5 +17,21 @@ namespace CellPhone.CellPhonePattern.BluePrints {
             set {
             }
         }
+
+        public int MaxCapacity {
+            get {
+                throw new System.NotImplementedException();
+            }
+            set {
+            }
+        }
+
+        public int CurrentPhonesConnected {
+            get {
+                throw new System.NotImplementedException();
+            }
+            set {
+            }
+        }
     }
 }
