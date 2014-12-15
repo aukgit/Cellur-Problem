@@ -148,6 +148,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PhoneInstance";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PhoneInstance_FormClosing);
             this.Load += new System.EventHandler(this.PhoneInstance_Load);
             this.IncommingCallPanel.ResumeLayout(false);
             this.ResumeLayout(false);

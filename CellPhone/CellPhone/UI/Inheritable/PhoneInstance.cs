@@ -29,7 +29,8 @@ namespace CellPhone.UI.Inheritable {
         public void StartRinging(Phone incommingFrom) {
             _ringCounter = 0;
             TimerToRing.Enabled = true;
-            IncommingPhoneNumberLabel.Text = incommingFrom.PhoneNumber.ToString();
+            TimerToRing.Start();
+            IncommingPhoneNumberLabel.Text = "Incoming call from : " + incommingFrom.PhoneNumber.ToString();
             IncommingPhoneNumberLabel.Visible = true;
             this.InCommingPhone = incommingFrom;
             ShouldWaitForResponse = true;
@@ -50,6 +51,7 @@ namespace CellPhone.UI.Inheritable {
             this.IncommingCallPanel.Visible = false;
             ShouldWaitForResponse = false;
             TimerToRing.Enabled = false;
+            TimerToRing.Stop();
         }
 
         private void LabelColorRed(Label label) {
@@ -73,8 +75,9 @@ namespace CellPhone.UI.Inheritable {
 
         public void StartRinging_Tick(object sender, EventArgs e) {
             if (_ringCounter >= TimesShouldRing) {
-                TimerToRing.Enabled = false;
                 ShouldWaitForResponse = false;
+                TimerToRing.Enabled = false;
+                TimerToRing.Stop();
                 //stop ringing
             }
 
@@ -96,7 +99,7 @@ namespace CellPhone.UI.Inheritable {
 
         public void DialNumber() {
             long phoneNumber;
-            if (!long.TryParse(this.DialingPad.Text, out phoneNumber)) {
+            if (long.TryParse(this.DialingPad.Text, out phoneNumber)) {
                 try {
                     Phone.MakeCall(phoneNumber);
                 } catch (Exception ex) {
@@ -131,6 +134,17 @@ namespace CellPhone.UI.Inheritable {
         private void PhoneInstance_Load(object sender, EventArgs e) {
             stopIncommingProcessing();
             this.PhoneNumberLabel.Text = Phone.PhoneNumber.ToString();
+
+            fixTitleLabel();
+        }
+
+        private void fixTitleLabel() {
+            this.Text = "Phone number :" + this.PhoneNumberLabel.Text;
+        }
+
+        private void PhoneInstance_FormClosing(object sender, FormClosingEventArgs e) {
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }

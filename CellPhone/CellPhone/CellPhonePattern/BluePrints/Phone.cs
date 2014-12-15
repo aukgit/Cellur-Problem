@@ -6,13 +6,23 @@ using CellPhone.Implementation;
 using CellPhone.UI.Inheritable;
 
 namespace CellPhone.CellPhonePattern.BluePrints {
-    public class Phone :  IFlashingBehaviour, INetwork, ISms {
+    public class Phone : IFlashingBehaviour, INetwork, ISms {
 
         public Phone(long phoneNumber, PhoneInstance phoneInstance) {
             if (Global.PhoneNumbers.Any(n => n == phoneNumber)) {
                 throw new Exception("you can't create a phone with existing number.");
             }
             TryToGetOnline();
+            this.PhoneInstance = phoneInstance;
+            this.PhoneNumber = phoneNumber;
+            Global.PhoneNumbers.Add(phoneNumber);
+        }
+
+        public Phone(long phoneNumber, PhoneInstance phoneInstance, LocalNetwork network) {
+            if (Global.PhoneNumbers.Any(n => n == phoneNumber)) {
+                throw new Exception("you can't create a phone with existing number.");
+            }
+            network.ConnectNetwrok(this);
             this.PhoneInstance = phoneInstance;
             this.PhoneNumber = phoneNumber;
             Global.PhoneNumbers.Add(phoneNumber);
@@ -53,19 +63,15 @@ namespace CellPhone.CellPhonePattern.BluePrints {
         public bool IsRinging { get; set; }
 
         public void StartRinging(Phone dialingToPhone) {
-            if (dialingToPhone.PhoneInstance == null) {
-                dialingToPhone.PhoneInstance = new PhoneInstance(this);
-            }
-
-            dialingToPhone.PhoneInstance.Show();
-            dialingToPhone.StartRinging(this);
+            dialingToPhone.DisplayInterface();
+            dialingToPhone.PhoneInstance.StartRinging(this);
         }
 
 
-  
+
 
         public void StopRinging() {
-            throw new System.NotImplementedException();
+           
         }
 
         #endregion
@@ -75,11 +81,11 @@ namespace CellPhone.CellPhonePattern.BluePrints {
         public bool IsFlashing { get; set; }
 
         public void StartFlashing() {
-            throw new System.NotImplementedException();
+            IsFlashing = true;
         }
 
         public void StopFlashing() {
-            throw new System.NotImplementedException();
+            IsFlashing = false;
         }
 
         #endregion
@@ -117,7 +123,8 @@ namespace CellPhone.CellPhonePattern.BluePrints {
         /// if connected then true
         /// </summary>
         public bool MakeCall(long phoneNumber) {
-            throw new System.NotImplementedException();
+            bool isSuccefull = MakeCallInSameNetwork(phoneNumber);
+            return true;
         }
 
         /// <summary>
@@ -178,7 +185,7 @@ namespace CellPhone.CellPhonePattern.BluePrints {
         /// </summary>
         public bool IsFlashingOnWhenRinging { get; set; }
 
-        
+
 
         /// <summary>
         /// true if on call
