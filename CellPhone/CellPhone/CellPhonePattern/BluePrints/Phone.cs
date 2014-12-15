@@ -70,5 +70,18 @@ namespace CellPhone.CellPhonePattern.BluePrints
         }
 
         #endregion
+
+        public int PhoneNumber {
+            get {
+                throw new System.NotImplementedException();
+            }
+            set {
+            }
+        }
+
+        public Phone ConnectedPhone { get; set; }
+        
+
+        public Phone CallingPhone { get; set; }
     }
 }
