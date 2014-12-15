@@ -3,19 +3,21 @@ using System.Linq;
 using System.Windows.Forms;
 using CellPhone.CellPhonePattern.Interfaces;
 using CellPhone.Implementation;
+using CellPhone.UI.Inheritable;
 
 namespace CellPhone.CellPhonePattern.BluePrints {
     public class Phone : IBehaviourRinging, IFlashingBehaviour, INetwork, ISms {
 
-        public Phone(long phoneNumber, Form form) {
+        public Phone(long phoneNumber, PhoneInstance phoneInstance) {
             if (Global.PhoneNumbers.Any(n => n == phoneNumber)) {
                 throw new Exception("you can't create a phone with existing number.");
             }
             TryToGetOnline();
+            this.PhoneInstance = phoneInstance;
             this.PhoneNumber = phoneNumber;
         }
 
-        public Form PhoneInstance { get; set; }
+        public PhoneInstance PhoneInstance { get; set; }
 
         /// <summary>
         /// if possible try to get connected with a network.
@@ -42,7 +44,12 @@ namespace CellPhone.CellPhonePattern.BluePrints {
         public bool IsRinging { get; set; }
 
         public void StartRinging() {
-            throw new System.NotImplementedException();
+            if (this.PhoneInstance == null) {
+                this.PhoneInstance = new PhoneInstance(this);
+            }
+            this.PhoneInstance.Show();
+            this.PhoneInstance.
+
         }
 
         public void StopRinging() {
