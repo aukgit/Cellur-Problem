@@ -1,7 +1,11 @@
 ﻿using System.Collections.Generic;
+using CellPhone.Implementation;
 
 namespace CellPhone.CellPhonePattern.BluePrints {
-    public class GlobalNetwork {
+    public class GlobalNetwork : CellPhone.CellPhonePattern.Interfaces.INetwork {
+        public GlobalNetwork() {
+            Networks = new List<LocalNetwork>(Global.DefaultNetworkPossible);
+        }
         public List<LocalNetwork> Networks { get; set; }
 
         public bool ConnectToLocalNetwork(Phone phone) {
@@ -29,5 +33,18 @@ namespace CellPhone.CellPhonePattern.BluePrints {
         public LocalNetwork FindNetwork() {
             throw new System.NotImplementedException();
         }
+
+        #region INetwork Members
+
+        public int NetwrokId {
+            get {
+                throw new System.NotImplementedException();
+            }
+            set {
+                throw new System.NotImplementedException();
+            }
+        }
+
+        #endregion
     }
 }

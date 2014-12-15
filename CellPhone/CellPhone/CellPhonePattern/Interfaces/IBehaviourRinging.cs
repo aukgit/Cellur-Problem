@@ -1,6 +1,6 @@
 ﻿namespace CellPhone.CellPhonePattern.Interfaces {
     public interface IBehaviourRinging {
-        int IsRinging {
+        bool IsRinging {
             get;
             set;
         }

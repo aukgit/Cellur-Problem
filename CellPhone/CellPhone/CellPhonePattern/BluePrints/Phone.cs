@@ -6,11 +6,7 @@ namespace CellPhone.CellPhonePattern.BluePrints
     {
         #region Implementation of IBehaviourRinging
 
-        public int IsRinging
-        {
-            get { throw new System.NotImplementedException(); }
-            set { throw new System.NotImplementedException(); }
-        }
+        public bool IsRinging { get; set; }
 
         public void StartRinging()
         {
@@ -26,11 +22,7 @@ namespace CellPhone.CellPhonePattern.BluePrints
 
         #region Implementation of IFlashingBehaviour
 
-        public bool IsFlashing
-        {
-            get { throw new System.NotImplementedException(); }
-            set { throw new System.NotImplementedException(); }
-        }
+        public bool IsFlashing { get; set; }
 
         public void StartFlashing()
         {
@@ -46,11 +38,7 @@ namespace CellPhone.CellPhonePattern.BluePrints
 
         #region Implementation of INetwork
 
-        public int NetwrokId
-        {
-            get { throw new System.NotImplementedException(); }
-            set { throw new System.NotImplementedException(); }
-        }
+        public int NetwrokId { get; set; }
 
         #endregion
 
@@ -71,26 +59,14 @@ namespace CellPhone.CellPhonePattern.BluePrints
 
         #endregion
 
-        public long PhoneNumber {
-            get {
-                throw new System.NotImplementedException();
-            }
-            set {
-            }
-        }
+        public long PhoneNumber { get; set; }
 
         public Phone ConnectedPhone { get; set; }
         
 
         public Phone CallingPhone { get; set; }
 
-        public int IsReceivedFrom {
-            get {
-                throw new System.NotImplementedException();
-            }
-            set {
-            }
-        }
+        public bool IsReceivedFrom { get; set; }
 
         /// <summary>
         /// if connected then true
@@ -99,8 +75,21 @@ namespace CellPhone.CellPhonePattern.BluePrints
             throw new System.NotImplementedException();
         }
 
-        public bool TerminateCall() {
+        /// <summary>
+        /// if connected then true
+        /// </summary>
+        public bool MakeCallInSameNetwork(long phoneNumber) {
             throw new System.NotImplementedException();
+        }
+
+        public void TerminateCall() {
+            if (IsPhoneOnCall)
+            {
+                IsPhoneOnCall = false;
+                IsReceivedFrom = false;
+                IsRinging = false;
+                ConnectedPhone = null;
+            }
         }
 
         public LocalNetwork RelatedNetwork {
@@ -123,6 +112,17 @@ namespace CellPhone.CellPhonePattern.BluePrints
         }
 
         public bool IsFlashingOnWhenRinging {
+            get {
+                throw new System.NotImplementedException();
+            }
+            set {
+            }
+        }
+
+        /// <summary>
+        /// true if on call
+        /// </summary>
+        public bool IsPhoneOnCall {
             get {
                 throw new System.NotImplementedException();
             }

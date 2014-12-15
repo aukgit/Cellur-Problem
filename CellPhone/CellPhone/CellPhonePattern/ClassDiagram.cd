@@ -3,7 +3,7 @@
   <Class Name="CellPhone.CellPhonePattern.BluePrints.Phone" HideInheritanceLine="true">
     <Position X="0.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAACQAAAAAAIAAgAAAAQAAAAEGBAAAAAAgAgAAABEQ=</HashCode>
+      <HashCode>IAAAiQAAAgAAIAAgAAAAQAAAAEGBAAAAAAgAgAAABEQ=</HashCode>
       <FileName>CellPhonePattern\BluePrints\Phone.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -11,16 +11,18 @@
   <Class Name="CellPhone.CellPhonePattern.BluePrints.GlobalNetwork" HideInheritanceLine="true">
     <Position X="3.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAIAAACAAAAAAAAgAAAAABAACAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAACAAEAAAAAgAAAAABAACAA=</HashCode>
       <FileName>CellPhonePattern\BluePrints\GlobalNetwork.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="CellPhone.CellPhonePattern.BluePrints.LocalNetwork" HideInheritanceLine="true">
     <Position X="5.75" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAAAAAAAAAAAAAAAAAAAQAAAAAAAAgAAAAAIIQAIAA=</HashCode>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAQAAAEAAgAgAAAAAIIQAIAA=</HashCode>
       <FileName>CellPhonePattern\BluePrints\LocalNetwork.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="CellPhone.CellPhonePattern.Interfaces.INetwork">
     <Position X="1.25" Y="0.75" Width="1.5" />
