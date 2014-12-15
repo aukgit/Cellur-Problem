@@ -14,6 +14,8 @@ namespace CellPhone {
         [STAThread]
         static void Main() {
             Global.Network = new GlobalNetwork();
+            Global.PhoneNumbers = new List<long>();
+            Global.NetworkIds = new List<int>();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

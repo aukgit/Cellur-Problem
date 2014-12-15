@@ -13,15 +13,21 @@ namespace CellPhone.CellPhonePattern.BluePrints {
         public List<LocalNetwork> Networks { get; set; }
 
         public bool ConnectToLocalNetwork(Phone phone) {
-            throw new System.NotImplementedException();
+            var network = GetAvailableNetwork();
+            network.ConnectNetwrok(phone);
+            return true;
         }
 
         public bool ConnectToLocalNetwork(Phone phone, LocalNetwork localNetwrok) {
-            throw new System.NotImplementedException();
+            localNetwrok.ConnectNetwrok(phone);
+            return true;
         }
 
         public bool RemovePhoneFromNetwork(Phone phone) {
-            throw new System.NotImplementedException();
+           
+            phone.SwtichOff();
+            return true;
+
         }
 
 

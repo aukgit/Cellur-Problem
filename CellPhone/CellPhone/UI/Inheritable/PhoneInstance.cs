@@ -11,6 +11,7 @@ namespace CellPhone.UI.Inheritable {
             Phone = currentPhone;
             InitializeComponent();
             TimesShouldRing = 10;
+            
         }
 
         public PhoneInstance(Phone currentPhone, int defRing) {
@@ -125,6 +126,11 @@ namespace CellPhone.UI.Inheritable {
 
         private void IsFlashWhenCall_CheckedChanged(object sender, EventArgs e) {
             this.Phone.IsFlashingOnWhenRinging = this.IsFlashWhenCall.Checked;
+        }
+
+        private void PhoneInstance_Load(object sender, EventArgs e) {
+            stopIncommingProcessing();
+            this.PhoneNumberLabel.Text = Phone.PhoneNumber.ToString();
         }
     }
 }

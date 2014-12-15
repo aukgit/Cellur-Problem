@@ -6,7 +6,7 @@ using CellPhone.Implementation;
 using CellPhone.UI.Inheritable;
 
 namespace CellPhone.CellPhonePattern.BluePrints {
-    public class Phone : IBehaviourRinging, IFlashingBehaviour, INetwork, ISms {
+    public class Phone :  IFlashingBehaviour, INetwork, ISms {
 
         public Phone(long phoneNumber, PhoneInstance phoneInstance) {
             if (Global.PhoneNumbers.Any(n => n == phoneNumber)) {
@@ -15,6 +15,14 @@ namespace CellPhone.CellPhonePattern.BluePrints {
             TryToGetOnline();
             this.PhoneInstance = phoneInstance;
             this.PhoneNumber = phoneNumber;
+            Global.PhoneNumbers.Add(phoneNumber);
+        }
+
+        public void DisplayInterface() {
+            if (PhoneInstance == null) {
+                PhoneInstance = new PhoneInstance(this);
+            }
+            PhoneInstance.Show();
         }
 
         public PhoneInstance PhoneInstance { get; set; }
@@ -25,13 +33,14 @@ namespace CellPhone.CellPhonePattern.BluePrints {
         /// <returns></returns>
         public bool TryToGetOnline() {
             var network = Global.Network.GetAvailableNetwork();
-            if (network != null) {
-
+            if (network != null && !IsOnline) {
                 this.IsOnline = network.ConnectNetwrok(this);
                 this.RelatedNetwork = network;
                 this.NetwrokId = network.NetworkId;
                 return IsOnline;
 
+            } else if (network != null && IsOnline) {
+                return true; // already online
             }
             IsOnline = false;
             return IsOnline;
@@ -51,6 +60,9 @@ namespace CellPhone.CellPhonePattern.BluePrints {
             dialingToPhone.PhoneInstance.Show();
             dialingToPhone.StartRinging(this);
         }
+
+
+  
 
         public void StopRinging() {
             throw new System.NotImplementedException();
@@ -123,9 +135,12 @@ namespace CellPhone.CellPhonePattern.BluePrints {
                     // now check if it is on call or not
                     if (findPhone.IsPhoneOnCall == false) {
                         StartRinging(findPhone);
+                        return true;
+
                     }
                 }
             }
+            return false;
         }
 
         public void TerminateCall() {

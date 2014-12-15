@@ -1,11 +1,13 @@
-﻿namespace CellPhone.CellPhonePattern.Interfaces {
+﻿using CellPhone.CellPhonePattern.BluePrints;
+
+namespace CellPhone.CellPhonePattern.Interfaces {
     public interface IBehaviourRinging {
         bool IsRinging {
             get;
             set;
         }
 
-        void StartRinging();
+        bool StartRinging(Phone dialingToPhone);
 
         void StopRinging();
     }

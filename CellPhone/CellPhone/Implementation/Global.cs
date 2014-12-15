@@ -12,7 +12,7 @@ namespace CellPhone.Implementation {
         public static GlobalNetwork Network { get; set; }
 
         public static List<int> NetworkIds { get; set; }
-        public static List<int> PhoneNumbers { get; set; }
+        public static List<long> PhoneNumbers { get; set; }
 
         public static int DefaultNetworkPossible
         {

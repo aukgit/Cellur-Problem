@@ -7,3 +7,4 @@ E:\Working\GitHub\Cellur-Problem\CellPhone\CellPhone\bin\Debug\CellPhone.pdb
 E:\Working\GitHub\Cellur-Problem\CellPhone\CellPhone\obj\Debug\CellPhone.exe
 E:\Working\GitHub\Cellur-Problem\CellPhone\CellPhone\obj\Debug\CellPhone.pdb
 E:\Working\GitHub\Cellur-Problem\CellPhone\CellPhone\obj\Debug\CellPhone.UI.Inheritable.PhoneInstance.resources
+E:\Working\GitHub\Cellur-Problem\CellPhone\CellPhone\obj\Debug\CellPhone.Form1.resources
