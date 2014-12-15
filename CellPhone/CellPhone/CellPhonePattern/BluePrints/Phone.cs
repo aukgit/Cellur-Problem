@@ -71,7 +71,7 @@ namespace CellPhone.CellPhonePattern.BluePrints
 
         #endregion
 
-        public int PhoneNumber {
+        public long PhoneNumber {
             get {
                 throw new System.NotImplementedException();
             }
@@ -83,5 +83,43 @@ namespace CellPhone.CellPhonePattern.BluePrints
         
 
         public Phone CallingPhone { get; set; }
+
+        public int IsReceivedFrom {
+            get {
+                throw new System.NotImplementedException();
+            }
+            set {
+            }
+        }
+
+        /// <summary>
+        /// if connected then true
+        /// </summary>
+        public bool MakeCall(long phoneNumber) {
+            throw new System.NotImplementedException();
+        }
+
+        public bool TerminateCall() {
+            throw new System.NotImplementedException();
+        }
+
+        public LocalNetwork RelatedNetwork {
+            get {
+                throw new System.NotImplementedException();
+            }
+            set {
+            }
+        }
+
+        /// <summary>
+        /// is switch on or off
+        /// </summary>
+        public bool IsOnline {
+            get {
+                throw new System.NotImplementedException();
+            }
+            set {
+            }
+        }
     }
 }

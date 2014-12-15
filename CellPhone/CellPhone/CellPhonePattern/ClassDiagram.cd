@@ -3,24 +3,20 @@
   <Class Name="CellPhone.CellPhonePattern.BluePrints.Phone" HideInheritanceLine="true">
     <Position X="1.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAAAAAAgAAAAAAAAAEEBAAAAAAgAAAAAAAQ=</HashCode>
+      <HashCode>IAAACQAAAAAAIAAgAAAAQAAAAEGBAAAAAAgAgAAABEQ=</HashCode>
       <FileName>CellPhonePattern\BluePrints\Phone.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="System.Object" Collapsed="true">
-    <Position X="8.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
-  <Class Name="CellPhone.CellPhonePattern.BluePrints.GlobalNetwork">
-    <Position X="5" Y="5.75" Width="1.5" />
+  <Class Name="CellPhone.CellPhonePattern.BluePrints.GlobalNetwork" HideInheritanceLine="true">
+    <Position X="4" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
       <FileName>CellPhonePattern\BluePrints\GlobalNetwork.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CellPhone.CellPhonePattern.BluePrints.LocalNetwork">
-    <Position X="6.75" Y="7.75" Width="1.5" />
+  <Class Name="CellPhone.CellPhonePattern.BluePrints.LocalNetwork" HideInheritanceLine="true">
+    <Position X="7" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
       <FileName>CellPhonePattern\BluePrints\LocalNetwork.cs</FileName>
