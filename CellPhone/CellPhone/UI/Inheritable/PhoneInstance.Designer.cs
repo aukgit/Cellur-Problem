@@ -26,13 +26,14 @@
             this.components = new System.ComponentModel.Container();
             this.AnswerBtn = new System.Windows.Forms.Button();
             this.Rejectbtn = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.IncommingCallPanel = new System.Windows.Forms.Panel();
             this.PhoneNumberLabel = new System.Windows.Forms.Label();
             this.DialBtn = new System.Windows.Forms.Button();
             this.IncommingPhoneNumberLabel = new System.Windows.Forms.Label();
             this.DialingPad = new System.Windows.Forms.TextBox();
             this.TimerToRing = new System.Windows.Forms.Timer(this.components);
-            this.panel1.SuspendLayout();
+            this.IsFlashWhenCall = new System.Windows.Forms.CheckBox();
+            this.IncommingCallPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // AnswerBtn
@@ -59,15 +60,15 @@
             this.Rejectbtn.Text = "Reject";
             this.Rejectbtn.UseVisualStyleBackColor = false;
             // 
-            // panel1
+            // IncommingCallPanel
             // 
-            this.panel1.Controls.Add(this.Rejectbtn);
-            this.panel1.Controls.Add(this.AnswerBtn);
-            this.panel1.Location = new System.Drawing.Point(203, 117);
-            this.panel1.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(235, 53);
-            this.panel1.TabIndex = 2;
+            this.IncommingCallPanel.Controls.Add(this.Rejectbtn);
+            this.IncommingCallPanel.Controls.Add(this.AnswerBtn);
+            this.IncommingCallPanel.Location = new System.Drawing.Point(203, 117);
+            this.IncommingCallPanel.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.IncommingCallPanel.Name = "IncommingCallPanel";
+            this.IncommingCallPanel.Size = new System.Drawing.Size(235, 53);
+            this.IncommingCallPanel.TabIndex = 2;
             // 
             // PhoneNumberLabel
             // 
@@ -119,23 +120,35 @@
             this.TimerToRing.Interval = 2000;
             this.TimerToRing.Tick += new System.EventHandler(this.StartRinging_Tick);
             // 
+            // IsFlashWhenCall
+            // 
+            this.IsFlashWhenCall.AutoSize = true;
+            this.IsFlashWhenCall.Location = new System.Drawing.Point(5, 167);
+            this.IsFlashWhenCall.Name = "IsFlashWhenCall";
+            this.IsFlashWhenCall.Size = new System.Drawing.Size(190, 34);
+            this.IsFlashWhenCall.TabIndex = 8;
+            this.IsFlashWhenCall.Text = "Is flash when call";
+            this.IsFlashWhenCall.UseVisualStyleBackColor = true;
+            this.IsFlashWhenCall.CheckedChanged += new System.EventHandler(this.IsFlashWhenCall_CheckedChanged);
+            // 
             // PhoneInstance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 188);
+            this.ClientSize = new System.Drawing.Size(446, 208);
+            this.Controls.Add(this.IsFlashWhenCall);
             this.Controls.Add(this.DialingPad);
             this.Controls.Add(this.IncommingPhoneNumberLabel);
             this.Controls.Add(this.DialBtn);
             this.Controls.Add(this.PhoneNumberLabel);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.IncommingCallPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.Name = "PhoneInstance";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PhoneInstance";
-            this.panel1.ResumeLayout(false);
+            this.IncommingCallPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,11 +158,12 @@
 
         private System.Windows.Forms.Button AnswerBtn;
         private System.Windows.Forms.Button Rejectbtn;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel IncommingCallPanel;
         private System.Windows.Forms.Label PhoneNumberLabel;
         private System.Windows.Forms.Button DialBtn;
         private System.Windows.Forms.Label IncommingPhoneNumberLabel;
         private System.Windows.Forms.TextBox DialingPad;
         public System.Windows.Forms.Timer TimerToRing;
+        private System.Windows.Forms.CheckBox IsFlashWhenCall;
     }
 }

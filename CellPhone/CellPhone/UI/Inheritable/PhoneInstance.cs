@@ -22,6 +22,8 @@ namespace CellPhone.UI.Inheritable {
         public Phone Phone { get; set; }
         public Phone InCommingPhone { get; set; }
         public int TimesShouldRing { get; set; }
+        public bool ShouldWaitForResponse { get; set; }
+        public bool InResponseOfCall { get; set; }
 
         public void StartRinging(Phone incommingFrom) {
             _ringCounter = 0;
@@ -29,9 +31,25 @@ namespace CellPhone.UI.Inheritable {
             IncommingPhoneNumberLabel.Text = incommingFrom.PhoneNumber.ToString();
             IncommingPhoneNumberLabel.Visible = true;
             this.InCommingPhone = incommingFrom;
+            ShouldWaitForResponse = true;
         }
 
-        public void 
+        public void Answer() {
+            InResponseOfCall = true;
+            stopIncommingProcessing();
+        }
+
+        public void Reject() {
+            stopIncommingProcessing();
+            InResponseOfCall = false;
+            
+        }
+
+        private void stopIncommingProcessing() {
+            this.IncommingCallPanel.Visible = false;
+            ShouldWaitForResponse = false;
+            TimerToRing.Enabled = false;
+        }
 
         private void LabelColorRed(Label label) {
             label.BackColor = Color.Red;
@@ -55,6 +73,7 @@ namespace CellPhone.UI.Inheritable {
         public void StartRinging_Tick(object sender, EventArgs e) {
             if (_ringCounter >= TimesShouldRing) {
                 TimerToRing.Enabled = false;
+                ShouldWaitForResponse = false;
                 //stop ringing
             }
 
@@ -102,6 +121,10 @@ namespace CellPhone.UI.Inheritable {
                 TextColorNormal(this.DialingPad);
 
             }
+        }
+
+        private void IsFlashWhenCall_CheckedChanged(object sender, EventArgs e) {
+            this.Phone.IsFlashingOnWhenRinging = this.IsFlashWhenCall.Checked;
         }
     }
 }

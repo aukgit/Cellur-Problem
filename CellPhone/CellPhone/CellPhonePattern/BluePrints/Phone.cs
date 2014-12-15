@@ -43,13 +43,13 @@ namespace CellPhone.CellPhonePattern.BluePrints {
 
         public bool IsRinging { get; set; }
 
-        public void StartRinging() {
-            if (this.PhoneInstance == null) {
-                this.PhoneInstance = new PhoneInstance(this);
+        public void StartRinging(Phone dialingToPhone) {
+            if (dialingToPhone.PhoneInstance == null) {
+                dialingToPhone.PhoneInstance = new PhoneInstance(this);
             }
-            this.PhoneInstance.Show();
-            this.PhoneInstance.
 
+            dialingToPhone.PhoneInstance.Show();
+            dialingToPhone.StartRinging(this);
         }
 
         public void StopRinging() {
@@ -122,7 +122,7 @@ namespace CellPhone.CellPhonePattern.BluePrints {
 
                     // now check if it is on call or not
                     if (findPhone.IsPhoneOnCall == false) {
-                        findPhone.StartRinging();
+                        StartRinging(findPhone);
                     }
                 }
             }
