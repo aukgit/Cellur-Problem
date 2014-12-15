@@ -11,7 +11,7 @@
   <Class Name="CellPhone.CellPhonePattern.BluePrints.GlobalNetwork" HideInheritanceLine="true">
     <Position X="4.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAgAAAAAAAAAAA=</HashCode>
       <FileName>CellPhonePattern\BluePrints\GlobalNetwork.cs</FileName>
     </TypeIdentifier>
   </Class>
