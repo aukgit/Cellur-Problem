@@ -1,20 +1,42 @@
 ﻿using CellPhone.CellPhonePattern.Interfaces;
+using CellPhone.Implementation;
 
-namespace CellPhone.CellPhonePattern.BluePrints
-{
-    public class Phone : IBehaviourRinging, IFlashingBehaviour, INetwork, ISms
-    {
+namespace CellPhone.CellPhonePattern.BluePrints {
+    public class Phone : IBehaviourRinging, IFlashingBehaviour, INetwork, ISms {
+
+        public Phone() {
+            TryToGetOnline();
+        }
+
+        /// <summary>
+        /// if possible try to get connected with a network.
+        /// </summary>
+        /// <returns></returns>
+        public bool TryToGetOnline() {
+            var network = Global.Network.GetAvailableNetwork();
+            if (network != null) {
+
+                this.IsOnline = network.ConnectNetwrok(this);
+                this.RelatedNetwork = network;
+                this.NetwrokId = network.NetworkId;
+                return IsOnline;
+
+            }
+            IsOnline = false;
+            return IsOnline;
+
+        }
+
+
         #region Implementation of IBehaviourRinging
 
         public bool IsRinging { get; set; }
 
-        public void StartRinging()
-        {
+        public void StartRinging() {
             throw new System.NotImplementedException();
         }
 
-        public void StopRinging()
-        {
+        public void StopRinging() {
             throw new System.NotImplementedException();
         }
 
@@ -24,13 +46,11 @@ namespace CellPhone.CellPhonePattern.BluePrints
 
         public bool IsFlashing { get; set; }
 
-        public void StartFlashing()
-        {
+        public void StartFlashing() {
             throw new System.NotImplementedException();
         }
 
-        public void StopFlashing()
-        {
+        public void StopFlashing() {
             throw new System.NotImplementedException();
         }
 
@@ -47,13 +67,11 @@ namespace CellPhone.CellPhonePattern.BluePrints
         /// <summary>
         /// returns true if send successfully.
         /// </summary>
-        public bool SendSms(Phone cellphone)
-        {
+        public bool SendSms(Phone cellphone) {
             throw new System.NotImplementedException();
         }
 
-        public bool SendSms(long phoneNumber)
-        {
+        public bool SendSms(long phoneNumber) {
             throw new System.NotImplementedException();
         }
 
@@ -62,11 +80,10 @@ namespace CellPhone.CellPhonePattern.BluePrints
         public long PhoneNumber { get; set; }
 
         public Phone ConnectedPhone { get; set; }
-        
+
 
         public Phone CallingPhone { get; set; }
 
-        public bool IsReceivedFrom { get; set; }
 
         /// <summary>
         /// if connected then true
@@ -76,58 +93,38 @@ namespace CellPhone.CellPhonePattern.BluePrints
         }
 
         /// <summary>
+        /// First check if phone is online or in a network then
+        /// if it finds the phone in that network then it will try to connect.
         /// if connected then true
         /// </summary>
         public bool MakeCallInSameNetwork(long phoneNumber) {
-            throw new System.NotImplementedException();
+
         }
 
         public void TerminateCall() {
-            if (IsPhoneOnCall)
-            {
+            if (IsPhoneOnCall) {
                 IsPhoneOnCall = false;
-                IsReceivedFrom = false;
-                IsRinging = false;
                 ConnectedPhone = null;
+                CallingPhone = null;
+                StopFlashing();
+                StopRinging();
             }
         }
 
-        public LocalNetwork RelatedNetwork {
-            get {
-                throw new System.NotImplementedException();
-            }
-            set {
-            }
-        }
+        public LocalNetwork RelatedNetwork { get; set; }
+
+
 
         /// <summary>
         /// is switch on or off
         /// </summary>
-        public bool IsOnline {
-            get {
-                throw new System.NotImplementedException();
-            }
-            set {
-            }
-        }
+        public bool IsOnline { get; set; }
 
-        public bool IsFlashingOnWhenRinging {
-            get {
-                throw new System.NotImplementedException();
-            }
-            set {
-            }
-        }
+        public bool IsFlashingOnWhenRinging { get; set; }
 
         /// <summary>
         /// true if on call
         /// </summary>
-        public bool IsPhoneOnCall {
-            get {
-                throw new System.NotImplementedException();
-            }
-            set {
-            }
-        }
+        public bool IsPhoneOnCall { get; set; }
     }
 }

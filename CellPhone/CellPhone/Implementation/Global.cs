@@ -11,6 +11,8 @@ namespace CellPhone.Implementation {
         private static int _defaultPhonesPossible = 50;
         public static GlobalNetwork Network { get; set; }
 
+        public static List<int> NetworkIds { get; set; }
+
         public static int DefaultNetworkPossible
         {
             get { return _defaultNetworkPossible; }
