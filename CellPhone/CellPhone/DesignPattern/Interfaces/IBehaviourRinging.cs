@@ -1,7 +1,12 @@
 ﻿namespace CellPhone.DesignPattern.Interfaces {
     public interface IBehaviourRinging {
-        void Start();
+        int IsRinging {
+            get;
+            set;
+        }
+    
+        void StartRinging();
 
-        void Stop();
+        void StopRinging();
     }
 }

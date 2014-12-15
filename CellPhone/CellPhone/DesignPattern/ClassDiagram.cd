@@ -1,21 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Interface Name="CellPhone.DesignPattern.Interfaces.INetwork">
-    <Position X="2" Y="0.75" Width="1.5" />
+  <Class Name="CellPhone.DesignPattern.BluePrints.CellPhone" HideInheritanceLine="true">
+    <Position X="1.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IAAACAAAAAAAAAAgAAAAQAAAAEEBAAAAAAgAgAAAAAQ=</HashCode>
+      <FileName>DesignPattern\BluePrints\CellPhone.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="8.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="CellPhone.DesignPattern.Interfaces.INetwork">
+    <Position X="1.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DesignPattern\Interfaces\INetwork.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="CellPhone.DesignPattern.Interfaces.IBehaviourRinging">
-    <Position X="4" Y="0.75" Width="1.5" />
+    <Position X="3.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAgAAAAAAAQ=</HashCode>
       <FileName>DesignPattern\Interfaces\IBehaviourRinging.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="CellPhone.DesignPattern.Interfaces.IFlashingBehaviour">
-    <Position X="5.75" Y="0.75" Width="1.5" />
+    <Position X="4.25" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAEBAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DesignPattern\Interfaces\IFlashingBehaviour.cs</FileName>
