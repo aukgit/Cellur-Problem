@@ -1,11 +1,17 @@
-﻿using CellPhone.CellPhonePattern.Interfaces;
+﻿using System;
+using System.Linq;
+using CellPhone.CellPhonePattern.Interfaces;
 using CellPhone.Implementation;
 
 namespace CellPhone.CellPhonePattern.BluePrints {
     public class Phone : IBehaviourRinging, IFlashingBehaviour, INetwork, ISms {
 
-        public Phone() {
+        public Phone(long phoneNumber) {
+            if (Global.PhoneNumbers.Any(n => n == phoneNumber)) {
+                throw new Exception("you can't create a phone with existing number.");
+            }
             TryToGetOnline();
+            this.PhoneNumber = phoneNumber;
         }
 
         /// <summary>
@@ -98,7 +104,18 @@ namespace CellPhone.CellPhonePattern.BluePrints {
         /// if connected then true
         /// </summary>
         public bool MakeCallInSameNetwork(long phoneNumber) {
+            // first check if this cell phone is online
+            if (IsOnline) {
+                var findPhone = RelatedNetwork.FindPhone(phoneNumber: phoneNumber);
+                if (findPhone != null) {
+                    // that means phone is connected , not switched off
 
+                    // now check if it is on call or not
+                    if (findPhone.IsPhoneOnCall == false) {
+                        findPhone.StartRinging();
+                    }
+                }
+            }
         }
 
         public void TerminateCall() {
@@ -111,6 +128,17 @@ namespace CellPhone.CellPhonePattern.BluePrints {
             }
         }
 
+
+        /// <summary>
+        /// Removing from network.
+        /// </summary>
+        public void SwtichOff() {
+            TerminateCall();
+            RelatedNetwork.RemovePhone(this);
+            RelatedNetwork = null;
+            IsOnline = false;
+        }
+
         public LocalNetwork RelatedNetwork { get; set; }
 
 
@@ -120,7 +148,12 @@ namespace CellPhone.CellPhonePattern.BluePrints {
         /// </summary>
         public bool IsOnline { get; set; }
 
+        /// <summary>
+        /// Is it necessary to flash the phone while ringing
+        /// </summary>
         public bool IsFlashingOnWhenRinging { get; set; }
+
+        
 
         /// <summary>
         /// true if on call
