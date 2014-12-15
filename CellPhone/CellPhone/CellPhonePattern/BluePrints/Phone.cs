@@ -121,5 +121,13 @@ namespace CellPhone.CellPhonePattern.BluePrints
             set {
             }
         }
+
+        public bool IsFlashingOnWhenRinging {
+            get {
+                throw new System.NotImplementedException();
+            }
+            set {
+            }
+        }
     }
 }

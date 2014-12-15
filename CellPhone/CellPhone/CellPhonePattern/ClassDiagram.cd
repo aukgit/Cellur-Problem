@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="CellPhone.CellPhonePattern.BluePrints.Phone" HideInheritanceLine="true">
-    <Position X="1.5" Y="3" Width="1.5" />
+    <Position X="0.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAACQAAAAAAIAAgAAAAQAAAAEGBAAAAAAgAgAAABEQ=</HashCode>
       <FileName>CellPhonePattern\BluePrints\Phone.cs</FileName>
@@ -9,16 +9,16 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="CellPhone.CellPhonePattern.BluePrints.GlobalNetwork" HideInheritanceLine="true">
-    <Position X="4.25" Y="5.25" Width="1.5" />
+    <Position X="3.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAACAAAAAAAAgAAAAABAACAA=</HashCode>
       <FileName>CellPhonePattern\BluePrints\GlobalNetwork.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CellPhone.CellPhonePattern.BluePrints.LocalNetwork" HideInheritanceLine="true">
-    <Position X="6" Y="6.75" Width="1.5" />
+    <Position X="5.75" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAIAAIAA=</HashCode>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAQAAAAAAAAgAAAAAIIQAIAA=</HashCode>
       <FileName>CellPhonePattern\BluePrints\LocalNetwork.cs</FileName>
     </TypeIdentifier>
   </Class>
