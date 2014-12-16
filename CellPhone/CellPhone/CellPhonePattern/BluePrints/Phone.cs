@@ -24,6 +24,7 @@ namespace CellPhone.CellPhonePattern.BluePrints {
                 throw new Exception("you can't create a phone with existing number.");
             }
             network.ConnectNetwrok(this);
+            IsOnline = true;
             this.PhoneInstance = phoneInstance;
             this.PhoneNumber = phoneNumber;
             Global.PhoneNumbers.Add(phoneNumber);
@@ -65,6 +66,13 @@ namespace CellPhone.CellPhonePattern.BluePrints {
 
         public void StartRinging(Phone dialingToPhone) {
             dialingToPhone.DisplayInterface();
+            if (IsOnDialing) {
+                throw new Exception("You are already dialing to a number");
+            }
+
+            if (dialingToPhone.IsOnDialing) {
+                throw new Exception("Number you are trying to dial is busy by someone else's call");
+            }
             this.IsOnDialing = true;
             dialingToPhone.IsOnDialing = true;
             dialingToPhone.PhoneInstance.StartRinging(this);
@@ -127,10 +135,16 @@ namespace CellPhone.CellPhonePattern.BluePrints {
         /// if connected then true
         /// </summary>
         public bool MakeCall(long phoneNumber) {
+            if (IsOnDialing) {
+                MessageBox.Show("Sorry you are already making a call, you can't make two call simultaniously..");
+                return false;
+            }
             if (IsOnline && !IsOnDialing) {
                 foreach (var network in Global.Network.Networks) {
                     var findPhone = network.FindPhone(phoneNumber: phoneNumber);
-                    DialPhone(findPhone);
+                    if (findPhone != null) {
+                        return DialPhone(findPhone);
+                    }
                 }
             }
             return false;
@@ -142,10 +156,14 @@ namespace CellPhone.CellPhonePattern.BluePrints {
         /// if connected then true
         /// </summary>
         public bool MakeCallInSameNetwork(long phoneNumber) {
+            if (IsOnDialing) {
+                MessageBox.Show("Sorry you are already making a call, you can't make two call simultaniously..");
+                return false;
+            }
             // first check if this cell phone is online
             if (IsOnline && !IsOnDialing) {
                 var findPhone = RelatedNetwork.FindPhone(phoneNumber: phoneNumber);
-                DialPhone(findPhone);
+                return DialPhone(findPhone);
             }
             return false;
         }
@@ -154,6 +172,11 @@ namespace CellPhone.CellPhonePattern.BluePrints {
             if (findPhone != null) {
                 // that means phone is connected , not switched off
 
+                if (findPhone.PhoneNumber == this.PhoneNumber) {
+                    MessageBox.Show("Sorry you can't dial your own number.");
+
+                    return false;
+                }
                 // now check if it is on call or not
                 if (findPhone.IsPhoneOnCall) {
                     MessageBox.Show("Dialing number is already on call with someone.");
@@ -169,6 +192,7 @@ namespace CellPhone.CellPhonePattern.BluePrints {
 
                 }
             }
+            return false;
         }
 
         public void TerminateCall() {

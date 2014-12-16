@@ -80,7 +80,7 @@
             this.PhoneNumberLabel.Location = new System.Drawing.Point(0, 0);
             this.PhoneNumberLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.PhoneNumberLabel.Name = "PhoneNumberLabel";
-            this.PhoneNumberLabel.Size = new System.Drawing.Size(446, 38);
+            this.PhoneNumberLabel.Size = new System.Drawing.Size(450, 38);
             this.PhoneNumberLabel.TabIndex = 3;
             this.PhoneNumberLabel.Text = "00";
             this.PhoneNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -102,7 +102,7 @@
             this.IncommingPhoneNumberLabel.Location = new System.Drawing.Point(0, 38);
             this.IncommingPhoneNumberLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.IncommingPhoneNumberLabel.Name = "IncommingPhoneNumberLabel";
-            this.IncommingPhoneNumberLabel.Size = new System.Drawing.Size(446, 38);
+            this.IncommingPhoneNumberLabel.Size = new System.Drawing.Size(450, 38);
             this.IncommingPhoneNumberLabel.TabIndex = 6;
             this.IncommingPhoneNumberLabel.Text = "00";
             this.IncommingPhoneNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -113,7 +113,7 @@
             this.DialingPad.Dock = System.Windows.Forms.DockStyle.Top;
             this.DialingPad.Location = new System.Drawing.Point(0, 76);
             this.DialingPad.Name = "DialingPad";
-            this.DialingPad.Size = new System.Drawing.Size(446, 35);
+            this.DialingPad.Size = new System.Drawing.Size(450, 35);
             this.DialingPad.TabIndex = 7;
             this.DialingPad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.DialingPad.TextChanged += new System.EventHandler(this.DialingPad_TextChanged);
@@ -150,7 +150,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 221);
+            this.ClientSize = new System.Drawing.Size(450, 228);
             this.Controls.Add(this.ConnectedLabel);
             this.Controls.Add(this.IsFlashWhenCall);
             this.Controls.Add(this.DialingPad);

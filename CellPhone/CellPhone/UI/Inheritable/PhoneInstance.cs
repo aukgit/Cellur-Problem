@@ -35,18 +35,27 @@ namespace CellPhone.UI.Inheritable {
             IncommingCallPanel.Visible = true;
             this.InCommingPhone = incommingFrom;
             ShouldWaitForResponse = true;
+            AnswerBtn.Visible = true;
+            //if (InCommingPhone != null) {
+            //    InCommingPhone.PhoneInstance.IncommingCallPanel.Visible = true;
+            //    InCommingPhone.PhoneInstance.Rejectbtn.Text = "Stop";
+            //}
         }
 
         public void Answer() {
             InResponseOfCall = true;
             StopIncommingProcessing();
             Phone.ConnectedPhone = InCommingPhone;
-            InCommingPhone = Phone;
             Phone.IsPhoneOnCall = true;
-            InCommingPhone.IsPhoneOnCall = true;
-            
-
             this.ConnectedLabel.Text = "Phone is connect to " + InCommingPhone.PhoneNumber;
+            if (InCommingPhone != null) {
+                InCommingPhone.ConnectedPhone = Phone;
+                InCommingPhone.IsPhoneOnCall = true;
+                InCommingPhone.PhoneInstance.ConnectedLabel.Text = "Phone is connect to " + this.Phone.PhoneNumber;
+                InCommingPhone.PhoneInstance.ConnectedLabel.Visible = true;
+            }
+            this.IncommingCallPanel.Visible = true;
+            AnswerBtn.Visible = false;
             this.ConnectedLabel.Visible = true;
         }
 
@@ -60,15 +69,19 @@ namespace CellPhone.UI.Inheritable {
             this.IncommingCallPanel.Visible = false;
             ShouldWaitForResponse = false;
             TimerToRing.Enabled = false;
-            IncommingCallPanel.Visible = false;
             Phone.IsRinging = false;
             Phone.IsFlashing = false;
             Phone.IsOnDialing = false;
-            
+            Phone.ConnectedPhone = null;
             TimerToRing.Stop();
             if (InCommingPhone != null) {
+                InCommingPhone.ConnectedPhone = null;
+                InCommingPhone.IsPhoneOnCall = false;
                 InCommingPhone.IsOnDialing = false;
+                InCommingPhone.PhoneInstance.ConnectedLabel.Visible = false;
+                //InCommingPhone.PhoneInstance.Rejectbtn.Text = "Reject";
             }
+            IncommingCallPanel.Visible = false;
             this.IncommingPhoneNumberLabel.Visible = false;
             fixTitleLabel();
             this.ConnectedLabel.Visible = false;
@@ -153,7 +166,7 @@ namespace CellPhone.UI.Inheritable {
         }
 
         private void PhoneInstance_Load(object sender, EventArgs e) {
-            StopIncommingProcessing();
+            this.IncommingCallPanel.Visible = false;
             this.PhoneNumberLabel.Text = Phone.PhoneNumber.ToString();
 
             fixTitleLabel();
