@@ -144,12 +144,13 @@
             this.ConnectedLabel.Size = new System.Drawing.Size(234, 24);
             this.ConnectedLabel.TabIndex = 9;
             this.ConnectedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ConnectedLabel.Visible = false;
             // 
             // PhoneInstance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 208);
+            this.ClientSize = new System.Drawing.Size(446, 221);
             this.Controls.Add(this.ConnectedLabel);
             this.Controls.Add(this.IsFlashWhenCall);
             this.Controls.Add(this.DialingPad);

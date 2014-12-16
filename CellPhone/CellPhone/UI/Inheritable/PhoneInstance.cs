@@ -40,6 +40,14 @@ namespace CellPhone.UI.Inheritable {
         public void Answer() {
             InResponseOfCall = true;
             StopIncommingProcessing();
+            Phone.ConnectedPhone = InCommingPhone;
+            InCommingPhone = Phone;
+            Phone.IsPhoneOnCall = true;
+            InCommingPhone.IsPhoneOnCall = true;
+            
+
+            this.ConnectedLabel.Text = "Phone is connect to " + InCommingPhone.PhoneNumber;
+            this.ConnectedLabel.Visible = true;
         }
 
         public void Reject() {
@@ -53,13 +61,17 @@ namespace CellPhone.UI.Inheritable {
             ShouldWaitForResponse = false;
             TimerToRing.Enabled = false;
             IncommingCallPanel.Visible = false;
-            TimerToRing.Stop();
+            Phone.IsRinging = false;
+            Phone.IsFlashing = false;
             Phone.IsOnDialing = false;
+            
+            TimerToRing.Stop();
             if (InCommingPhone != null) {
                 InCommingPhone.IsOnDialing = false;
             }
             this.IncommingPhoneNumberLabel.Visible = false;
             fixTitleLabel();
+            this.ConnectedLabel.Visible = false;
         }
 
         private void LabelColorRed(Label label) {

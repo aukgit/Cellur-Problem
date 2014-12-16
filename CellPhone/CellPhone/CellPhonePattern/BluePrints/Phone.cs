@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows.Forms;
 using CellPhone.CellPhonePattern.Interfaces;
 using CellPhone.Implementation;
@@ -126,8 +127,13 @@ namespace CellPhone.CellPhonePattern.BluePrints {
         /// if connected then true
         /// </summary>
         public bool MakeCall(long phoneNumber) {
-            bool isSuccefull = MakeCallInSameNetwork(phoneNumber);
-            return true;
+            if (IsOnline && !IsOnDialing) {
+                foreach (var network in Global.Network.Networks) {
+                    var findPhone = network.FindPhone(phoneNumber: phoneNumber);
+                    DialPhone(findPhone);
+                }
+            }
+            return false;
         }
 
         /// <summary>
@@ -139,21 +145,30 @@ namespace CellPhone.CellPhonePattern.BluePrints {
             // first check if this cell phone is online
             if (IsOnline && !IsOnDialing) {
                 var findPhone = RelatedNetwork.FindPhone(phoneNumber: phoneNumber);
-                if (findPhone != null) {
-                    // that means phone is connected , not switched off
-
-                    // now check if it is on call or not
-                    if (findPhone.IsPhoneOnCall == false && 
-                        findPhone.PhoneNumber != this.PhoneNumber && 
-                        !findPhone.IsOnDialing) {
-                        StartRinging(findPhone);
-
-                        return true;
-
-                    }
-                }
+                DialPhone(findPhone);
             }
             return false;
+        }
+
+        public bool DialPhone(Phone findPhone) {
+            if (findPhone != null) {
+                // that means phone is connected , not switched off
+
+                // now check if it is on call or not
+                if (findPhone.IsPhoneOnCall) {
+                    MessageBox.Show("Dialing number is already on call with someone.");
+
+                    return false;
+                }
+                if (findPhone.IsPhoneOnCall == false &&
+                    findPhone.PhoneNumber != this.PhoneNumber &&
+                    !findPhone.IsOnDialing) {
+                    StartRinging(findPhone);
+
+                    return true;
+
+                }
+            }
         }
 
         public void TerminateCall() {
