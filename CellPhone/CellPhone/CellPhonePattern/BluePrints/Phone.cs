@@ -64,7 +64,10 @@ namespace CellPhone.CellPhonePattern.BluePrints {
 
         public void StartRinging(Phone dialingToPhone) {
             dialingToPhone.DisplayInterface();
+            this.IsOnDialing = true;
+            dialingToPhone.IsOnDialing = true;
             dialingToPhone.PhoneInstance.StartRinging(this);
+            
         }
 
 
@@ -134,14 +137,17 @@ namespace CellPhone.CellPhonePattern.BluePrints {
         /// </summary>
         public bool MakeCallInSameNetwork(long phoneNumber) {
             // first check if this cell phone is online
-            if (IsOnline) {
+            if (IsOnline && !IsOnDialing) {
                 var findPhone = RelatedNetwork.FindPhone(phoneNumber: phoneNumber);
                 if (findPhone != null) {
                     // that means phone is connected , not switched off
 
                     // now check if it is on call or not
-                    if (findPhone.IsPhoneOnCall == false) {
+                    if (findPhone.IsPhoneOnCall == false && 
+                        findPhone.PhoneNumber != this.PhoneNumber && 
+                        !findPhone.IsOnDialing) {
                         StartRinging(findPhone);
+
                         return true;
 
                     }
@@ -179,6 +185,11 @@ namespace CellPhone.CellPhonePattern.BluePrints {
         /// is switch on or off
         /// </summary>
         public bool IsOnline { get; set; }
+
+        /// <summary>
+        /// Dialing someone or someone dialing
+        /// </summary>
+        public bool IsOnDialing { get; set; }
 
         /// <summary>
         /// Is it necessary to flash the phone while ringing

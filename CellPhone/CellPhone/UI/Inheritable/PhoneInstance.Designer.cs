@@ -33,6 +33,7 @@
             this.DialingPad = new System.Windows.Forms.TextBox();
             this.TimerToRing = new System.Windows.Forms.Timer(this.components);
             this.IsFlashWhenCall = new System.Windows.Forms.CheckBox();
+            this.ConnectedLabel = new System.Windows.Forms.Label();
             this.IncommingCallPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,6 +48,7 @@
             this.AnswerBtn.TabIndex = 0;
             this.AnswerBtn.Text = "Answer";
             this.AnswerBtn.UseVisualStyleBackColor = false;
+            this.AnswerBtn.Click += new System.EventHandler(this.AnswerBtn_Click);
             // 
             // Rejectbtn
             // 
@@ -59,6 +61,7 @@
             this.Rejectbtn.TabIndex = 1;
             this.Rejectbtn.Text = "Reject";
             this.Rejectbtn.UseVisualStyleBackColor = false;
+            this.Rejectbtn.Click += new System.EventHandler(this.Rejectbtn_Click);
             // 
             // IncommingCallPanel
             // 
@@ -112,6 +115,7 @@
             this.DialingPad.Name = "DialingPad";
             this.DialingPad.Size = new System.Drawing.Size(446, 35);
             this.DialingPad.TabIndex = 7;
+            this.DialingPad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.DialingPad.TextChanged += new System.EventHandler(this.DialingPad_TextChanged);
             this.DialingPad.Validated += new System.EventHandler(this.DialingPad_Validated);
             // 
@@ -131,11 +135,22 @@
             this.IsFlashWhenCall.UseVisualStyleBackColor = true;
             this.IsFlashWhenCall.CheckedChanged += new System.EventHandler(this.IsFlashWhenCall_CheckedChanged);
             // 
+            // ConnectedLabel
+            // 
+            this.ConnectedLabel.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.ConnectedLabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConnectedLabel.Location = new System.Drawing.Point(204, 177);
+            this.ConnectedLabel.Name = "ConnectedLabel";
+            this.ConnectedLabel.Size = new System.Drawing.Size(234, 24);
+            this.ConnectedLabel.TabIndex = 9;
+            this.ConnectedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // PhoneInstance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(446, 208);
+            this.Controls.Add(this.ConnectedLabel);
             this.Controls.Add(this.IsFlashWhenCall);
             this.Controls.Add(this.DialingPad);
             this.Controls.Add(this.IncommingPhoneNumberLabel);
@@ -167,5 +182,6 @@
         private System.Windows.Forms.TextBox DialingPad;
         public System.Windows.Forms.Timer TimerToRing;
         private System.Windows.Forms.CheckBox IsFlashWhenCall;
+        private System.Windows.Forms.Label ConnectedLabel;
     }
 }

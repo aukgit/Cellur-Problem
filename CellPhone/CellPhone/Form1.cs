@@ -38,7 +38,7 @@ namespace CellPhone {
             UpdateSublist();
         }
         void errorMsgShow(Exception ex) {
-            MessageBox.Show(ex.Message, "Error can't procede more.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(ex.Message, "Error : can't proceed more.", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
 

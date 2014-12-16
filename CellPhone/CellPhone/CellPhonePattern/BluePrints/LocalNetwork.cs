@@ -46,6 +46,7 @@ namespace CellPhone.CellPhonePattern.BluePrints {
             var phoneExist = FindPhone(phone);
             if (phoneExist != null) {
                 Phones.Remove(phoneExist);
+                Global.PhoneNumbers.Remove(phoneExist.PhoneNumber);
                 return true;
             }
             return false;

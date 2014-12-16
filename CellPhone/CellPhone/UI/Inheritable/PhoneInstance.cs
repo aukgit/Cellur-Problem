@@ -11,7 +11,7 @@ namespace CellPhone.UI.Inheritable {
             Phone = currentPhone;
             InitializeComponent();
             TimesShouldRing = 10;
-            
+
         }
 
         public PhoneInstance(Phone currentPhone, int defRing) {
@@ -32,26 +32,34 @@ namespace CellPhone.UI.Inheritable {
             TimerToRing.Start();
             IncommingPhoneNumberLabel.Text = "Incoming call from : " + incommingFrom.PhoneNumber.ToString();
             IncommingPhoneNumberLabel.Visible = true;
+            IncommingCallPanel.Visible = true;
             this.InCommingPhone = incommingFrom;
             ShouldWaitForResponse = true;
         }
 
         public void Answer() {
             InResponseOfCall = true;
-            stopIncommingProcessing();
+            StopIncommingProcessing();
         }
 
         public void Reject() {
-            stopIncommingProcessing();
+            StopIncommingProcessing();
             InResponseOfCall = false;
-            
+
         }
 
-        private void stopIncommingProcessing() {
+        private void StopIncommingProcessing() {
             this.IncommingCallPanel.Visible = false;
             ShouldWaitForResponse = false;
             TimerToRing.Enabled = false;
+            IncommingCallPanel.Visible = false;
             TimerToRing.Stop();
+            Phone.IsOnDialing = false;
+            if (InCommingPhone != null) {
+                InCommingPhone.IsOnDialing = false;
+            }
+            this.IncommingPhoneNumberLabel.Visible = false;
+            fixTitleLabel();
         }
 
         private void LabelColorRed(Label label) {
@@ -78,9 +86,10 @@ namespace CellPhone.UI.Inheritable {
                 ShouldWaitForResponse = false;
                 TimerToRing.Enabled = false;
                 TimerToRing.Stop();
+                StopIncommingProcessing();
                 //stop ringing
             }
-
+            //MessageBox.Show("ase");
             if (Phone.IsFlashingOnWhenRinging) {
                 if (_ringCounter % 2 == 0) {
                     LabelColorRed(IncommingPhoneNumberLabel);
@@ -132,7 +141,7 @@ namespace CellPhone.UI.Inheritable {
         }
 
         private void PhoneInstance_Load(object sender, EventArgs e) {
-            stopIncommingProcessing();
+            StopIncommingProcessing();
             this.PhoneNumberLabel.Text = Phone.PhoneNumber.ToString();
 
             fixTitleLabel();
@@ -145,6 +154,14 @@ namespace CellPhone.UI.Inheritable {
         private void PhoneInstance_FormClosing(object sender, FormClosingEventArgs e) {
             e.Cancel = true;
             this.Hide();
+        }
+
+        private void AnswerBtn_Click(object sender, EventArgs e) {
+            Answer();
+        }
+
+        private void Rejectbtn_Click(object sender, EventArgs e) {
+            Reject();
         }
     }
 }
